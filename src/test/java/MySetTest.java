@@ -84,4 +84,29 @@ public class MySetTest {
         boolean actual = set.equals(demo);
         Assert.assertEquals("Testing equals method", expected, actual);
     }
+
+    @Test
+    public void hashCodeTest(){
+
+        int expected = 1642534850;
+        int actual = set.hashCode();
+        Assert.assertEquals("testing hashcode", expected, actual);
+    }
+
+    @Test
+    public void iteratorTest(){
+
+        int count = 0;
+        Integer[] value = new Integer[set.size()];
+        System.out.println(value.length);
+
+        while (set.iterator().hasNext()) {
+           value[count]  = set.iterator().next();
+           count++;
+        }
+
+        int expected = 1;
+        int actual = value[0];
+        Assert.assertEquals("Testing iterator a index 0", expected, actual);
+    }
 }

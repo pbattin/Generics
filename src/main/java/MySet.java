@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Created by prestonbattin on 2/22/17.
@@ -6,6 +7,7 @@ import java.util.Collection;
 public class MySet<T> {
 
     private  T[] set;
+    static private int currentIndex = 0;
 
 
     MySet(){
@@ -112,5 +114,39 @@ public class MySet<T> {
             return false;
     }
 
+    public int hashCode(){
+
+        return set.hashCode();
+    }
+
+    public boolean isEmpty(){
+
+        return size() == 0;
+    }
+
+    public Iterator<T> 	iterator(){
+
+      Iterator<T> iterator = new Iterator<T>() {
+
+
+
+          public boolean hasNext() {
+
+              return currentIndex < size() && set[currentIndex] != null;
+          }
+
+          public T next() {
+
+              return set[currentIndex++];
+          }
+
+          public void remove(){
+
+              throw new UnsupportedOperationException();
+          }
+      };
+
+      return iterator;
+    }
 
 }
