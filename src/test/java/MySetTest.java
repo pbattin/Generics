@@ -109,4 +109,26 @@ public class MySetTest {
         int actual = value[0];
         Assert.assertEquals("Testing iterator a index 0", expected, actual);
     }
+
+    @Test
+    public void removeTest(){
+
+        set.remove(0);
+        int expected = 1;
+        int actual = set.size();
+        Assert.assertEquals("Testing remove method", expected, actual);
+    }
+
+    @Test
+    public void removeAllTest(){
+
+        Set<Integer> demo = new HashSet<Integer>();
+        demo.add(1);
+        demo.add(2);
+        set.removeAll(demo);
+
+        int expected = 1;
+        int actual = set.size();
+        Assert.assertEquals("Testing remove all method", expected, actual);
+    }
 }

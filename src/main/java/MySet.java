@@ -149,4 +149,40 @@ public class MySet<T> {
       return iterator;
     }
 
+    public boolean remove(final int index){
+
+        T[] temp = (T[]) new Object[size()-1];
+        for(int i = 0, j = 0; i < size(); i++){
+
+            if(i == index){
+
+                i++;
+            }
+
+            else if(i != index) {
+                temp[j] = set[i];
+                j++;
+            }
+        }
+
+        set = temp;
+        return true;
+    }
+
+    public boolean removeAll(Collection<T> c){
+
+
+        for(T t: c){
+
+            for(int i = 0; i < size(); i++){
+                if(set[i] == t) {
+
+                    remove(i);
+                }
+            }
+        }
+
+        return true;
+    }
+
 }
