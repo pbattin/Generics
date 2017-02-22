@@ -1,3 +1,5 @@
+import java.util.Collection;
+
 /**
  * Created by prestonbattin on 2/22/17.
  */
@@ -26,6 +28,38 @@ public class MySet<T> {
             return true;
         }
         return false;
+    }
+
+    public boolean addAll(Collection<T> c) {
+
+        int expandArrayBy = 0;
+        for(T t: c){
+
+            if (!contains(t))
+                expandArrayBy++;
+        }
+
+        T[] temp = (T[]) new Object[size() + expandArrayBy];
+
+
+        int count = 0;
+        for (int i = 0; i < size(); i++) {
+
+            temp[i] = set[i];
+            count++;
+        }
+
+
+        for (T t : c) {
+
+            if (!contains(t)) {
+                temp[count] = t;
+                count++;
+
+            }
+        }
+        set = temp;
+        return true;
     }
 
     public boolean contains(Object o){

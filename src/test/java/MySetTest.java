@@ -2,6 +2,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by prestonbattin on 2/22/17.
  */
@@ -35,5 +38,20 @@ public class MySetTest {
        Object[] data = set.toArray();
        int actual = (Integer) data[0];
         Assert.assertEquals("Testing toArray", expected, actual);
+    }
+
+    @Test
+    public void addAllTest(){
+
+        Set<Integer> demo = new HashSet<Integer>();
+        demo.add(1);
+        demo.add(3);
+        demo.add(2);
+        demo.add(4);
+
+        set.addAll(demo);
+        int expected = 4;
+        int actual = set.size();
+        Assert.assertEquals("Testing addAll", expected, actual);
     }
 }
