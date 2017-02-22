@@ -14,6 +14,7 @@ public class MySetTest {
 
 
 
+
     @Before
     public void setUp(){
 
@@ -28,7 +29,7 @@ public class MySetTest {
         set.add(1);
         int expected = 2;
         int actual = set.size();
-        Assert.assertEquals("Tesint it does not add if element is present already", expected, actual);
+        Assert.assertEquals("Testing it does not add if element is present already", expected, actual);
     }
 
     @Test
@@ -40,18 +41,34 @@ public class MySetTest {
         Assert.assertEquals("Testing toArray", expected, actual);
     }
 
+
+
     @Test
     public void addAllTest(){
-
         Set<Integer> demo = new HashSet<Integer>();
         demo.add(1);
         demo.add(3);
         demo.add(2);
         demo.add(4);
 
+
         set.addAll(demo);
         int expected = 4;
         int actual = set.size();
         Assert.assertEquals("Testing addAll", expected, actual);
+    }
+
+    @Test
+    public void containsAllTest(){
+        Set<Integer> demo = new HashSet<Integer>();
+        demo.add(1);
+        demo.add(3);
+        demo.add(2);
+        demo.add(4);
+
+        boolean expected = false;
+        boolean actual = set.containsAll(demo);
+        Assert.assertEquals("Testing contains all method", expected, actual);
+
     }
 }

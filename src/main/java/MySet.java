@@ -72,6 +72,18 @@ public class MySet<T> {
         return false;
     }
 
+    public boolean containsAll(Collection<T> c){
+        boolean containsAll = true;
+
+        for(T t: c){
+
+            if(!contains(t))
+                return false;
+        }
+        return true;
+
+    }
+
     public int size(){
 
         return set.length;
