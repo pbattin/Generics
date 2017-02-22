@@ -71,4 +71,17 @@ public class MySetTest {
         Assert.assertEquals("Testing contains all method", expected, actual);
 
     }
+
+    @Test
+    public void equalsTest(){
+
+        Set<Integer> demo = new HashSet<Integer>();
+        demo.add(1);
+        demo.add(2);
+
+
+        boolean expected = true;
+        boolean actual = set.equals(demo);
+        Assert.assertEquals("Testing equals method", expected, actual);
+    }
 }

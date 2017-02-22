@@ -103,4 +103,14 @@ public class MySet<T> {
     }
 
 
+    public boolean equals(Collection<T> c){
+
+        if(containsAll(c) && size() == c.size())
+            return true;
+
+        else
+            return false;
+    }
+
+
 }
